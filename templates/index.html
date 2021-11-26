@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styleme.css">
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">
+              <div class="header">
+                <h1 class="animation a0">AI Student Analyzer</h2>
+                <h2 class="animation a1">Welcome Back</h2>
+                <h4 class="animation a2">Upload an image and click on submit.</h4>
+              </div>
+              <form action='/predict' method="post" enctype="multipart/form-data">
+                <div class="animation a2">Choose an image:</div> <br>
+                <input type="file" class="form-field animation a3" id="img" name="img" accept="image/*">
+                <div class="animation a2 img_preview" id="img_preview">
+                  <img src="" class="img_preview__image">
+                  <span class="img_preview__default-text">Image Preview</span>
+                  
+                </div>
+                <br>
+                <button class="animation a6"><b>Submit</b></button>
+            </form>
+            </div>
+            <div class="right"></div>
+          </div>  
+    </body>
+    <script>
+      const img=document.getElementById('img');
+      const previewContainer = document.getElementById('img_preview');
+      const previewImage = document.querySelector('.img_preview__image');
+      const previewDefaultText = document.querySelector('.img_preview__default-text');
+      img.addEventListener("change",function(){
+        const file = this.files[0];
+        if(file)
+        {
+          const reader = new FileReader();
+          previewDefaultText.style.display = "none";
+          previewImage.style.display="block";
+
+          reader.addEventListener("load",function(){
+            console.log(this);
+            previewImage.setAttribute("src",this.result);
+          });
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+</html>
