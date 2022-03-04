@@ -1,4 +1,4 @@
-# Student Concentration Analyzer
+# Student Concentration Analyzer- SERVER-SIDE PREDICTION
 
 An Online Class Student Analyser using Python to provide online instructors insight about the concentration level of students during class by using Convolution Neural Networks to detect prolonged eye closure, yawns, gaze direction and perform an environment analysis to sense distractions and cell-phones during class time. The analysis is done on screenshots from recorded class sessions.
 
